@@ -25,6 +25,13 @@ int sortZerosAndOnes(int arr[], int size)
     arr[i] = 1;
   }
 }
+
+// ------------------another approach---------
+// int seggregate(int arr[], int size)
+// {
+//   int left, right;
+//   while ()
+//  }
 void printArray(int arr[], int size)
 {
   cout << "sorted array _";
@@ -47,5 +54,6 @@ int main()
     cin >> arry[i];
   }
   sortZerosAndOnes(arry, size);
+  // seggregate(arry, size);
   printArray(arry, size);
 }
