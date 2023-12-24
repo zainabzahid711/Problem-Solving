@@ -30,16 +30,16 @@ int partition(int arr[], int left, int right)
   swap(arr[left], arr[j]);
   return j;
 }
-// void quickSort(int arry[], int left, int right)
-// {
-//   if (left < right)
-//   {
-//     int pivoT = partition(arry, left, right);
-//     // recursive
-//     quickSort(arry, left, pivoT);
-//     quickSort(arry, pivoT + 1, right);
-//   }
-// }
+void quickSort(int arry[], int left, int right)
+{
+  if (left < right)
+  {
+    int pivoT = partition(arry, left, right);
+    // recursive
+    quickSort(arry, left, pivoT);
+    quickSort(arry, pivoT + 1, right);
+  }
+}
 void printArray(int arr[], int size)
 {
   cout << "sorted array _";
@@ -63,18 +63,7 @@ int main()
   cout << "enter the value of k to find k'th smallest_ ";
   cin >> k;
 
-  // quickSort(arry, 0, size);
-
-  int min = 0;
-  for (int i = 0; i < size; i++)
-  {
-    if (arry[i] < min)
-    {
-      min = arry[i];
-    }
-  }
+  quickSort(arry, 0, size);
   cout << k << "'th smallest number in array is_ " << arry[k - 1] << endl;
-  // int pivoT = partition(arry, l, r);
-  // cout << pivoT;
   printArray(arry, size);
 }
