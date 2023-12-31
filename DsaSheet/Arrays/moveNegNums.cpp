@@ -1,17 +1,33 @@
 #include <iostream>
 using namespace std;
 
-// find the K'th element in array using unsorting
-// for example int arr[3,12,4,24,1] and k=2   ---- output = 3
+// An array contains both positive and negative numbers in random order.
+//  Rearrange the array elements so that all negative numbers appear before all positive numbers.
 
-int moveNegNums(int arr[], int left, int right)
+void moveNegNums(int arr[], int left, int right)
 {
-  cout << "moved numbers";
+  int x = left, y = right;
+  while (x <= y)
+  {
+    while (arr[x] < 0 && x <= y)
+    {
+      x++;
+    }
+    while (arr[y] >= 0 && x <= y)
+    {
+      y--;
+    }
+    if (x <= y)
+    {
+      swap(arr[x], arr[y]);
+      x++;
+      y--;
+    }
+  }
 }
 
 void printArray(int arr[], int size)
 {
-  cout << "sorted array _";
   for (int i = 0; i < size; i++)
   {
     cout << arr[i] << " ";
@@ -29,10 +45,9 @@ int main()
   {
     cin >> arry[i];
   }
-  cout << "enter the value of k to find k'th smallest_ ";
-  cin >> k;
-
-  moveNegNums(arry, 0, size);
-  cout << k << "'th smallest number in array is_ " << arry[k - 1] << endl;
+  moveNegNums(arry, 0, size - 1);
+  cout << "after reArranging _" << endl;
   printArray(arry, size);
+  delete[] arry;
+  return 0;
 }
