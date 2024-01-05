@@ -79,6 +79,43 @@ void findUnion(int arr1[], int arr2[], int n1, int n2) // n1=size1 --- n2=size2
   }
 }
 
+void intersection(int arr1[], int arr2[], int n1, int n2)
+{
+  int i = 0, j = 0, k = 0;
+  int *resArray = new int[n1 + n2];
+  while (i < n1 && j < n2)
+  {
+    if (arr1[i] < arr2[j])
+    {
+      i++;
+    }
+    else if (arr1[i] > arr2[j])
+    {
+      j++;
+    }
+    else
+    {
+      if (k != 0 && arr1[i] == resArray[k - 1])
+      {
+        i++;
+        j++;
+      }
+      else
+      {
+        resArray[k] = arr1[i];
+        i++;
+        j++;
+        k++;
+      }
+    }
+  }
+  cout << "intersection of array _" << endl;
+  for (int x = 0; x < k; x++)
+  {
+    cout << resArray[x] << " ";
+  }
+}
+
 int main()
 {
   int size1, size2;
@@ -99,5 +136,6 @@ int main()
     cin >> arry2[i];
   }
 
-  findUnion(arry1, arry2, size1, size2);
+  // findUnion(arry1, arry2, size1, size2);
+  intersection(arry1, arry2, size1, size2);
 }
