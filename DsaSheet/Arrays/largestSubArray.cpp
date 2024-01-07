@@ -1,10 +1,14 @@
 #include <iostream>
 using namespace std;
 
-// ARRAY REVERSE
+// Largest sum contigoues subarray
+// 5 -6 3 -2 4 1
 // best apprach to solve using two pointr approach
 int largestSubArray(int arr[], int size)
 {
+  for (int i = 0; i < size; i++)
+  {
+  }
 }
 int main()
 {
