@@ -16,13 +16,12 @@ void reverseString(char string[], int lenght)
   int start = 0, end = lenght - 1;
   while (start < end)
   {
-    int temp = string[start];
-    string[end] = string[start];
+    char temp = string[start];
+    string[start] = string[end];
     string[end] = temp;
     start++;
     end--;
   }
-  cout << "reverse string is_" << string;
 }
 
 int main()
@@ -33,4 +32,5 @@ int main()
   int lenghtOfstr = getlenght(str);
   cout << "lenght of string _" << lenghtOfstr;
   reverseString(str, lenghtOfstr);
+  cout << "reverse string is_" << str;
 }
