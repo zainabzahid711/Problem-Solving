@@ -1,6 +1,20 @@
 #include <iostream>
 using namespace std;
 
+// one time rotation
+// last element at first
+// void stringRotation(char *string, int lenght)
+// {
+//   char temp = string[lenght - 1];
+
+//   cout << "rotation is _";
+//   for (int i = lenght - 1; i > 0; --i)
+//   {
+//     string[i] = string[i - 1];
+//   }
+//   string[0] = temp;
+//   // place the last character at first
+// }
 int getlenght(char string[])
 {
   int lenght = 0;
@@ -10,16 +24,15 @@ int getlenght(char string[])
   }
   return lenght;
 }
-
 void stringRotation(char string[], int lenght)
 {
-  char start = string[0];
-  // swap(string[start], string[end]);
-  for (int i = 1; i < lenght; i++)
+  int left = string[0];
+  int right = string[lenght - 1];
+  int mid = lenght / 2;
+  for (int i = 0; i < mid; i++)
   {
-    string[i - 1] = string[i];
+    swap(string[i], string[mid + i]);
   }
-  string[lenght - 1] = start;
 }
 
 int main()
@@ -29,7 +42,8 @@ int main()
   cout << "enter a string _" << endl;
   cin.getline(str, maxSize);
   int lenghtOfstr = getlenght(str);
-  cout << "lenght of string _" << lenghtOfstr;
+  cout << "lenght of string _" << lenghtOfstr << endl;
   stringRotation(str, lenghtOfstr);
-  cout << "oneTimeRotation of string_" << str;
+  cout << "Rotation of string_" << str << endl;
+  return 0;
 }
