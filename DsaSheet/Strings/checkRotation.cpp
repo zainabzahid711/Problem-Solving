@@ -36,16 +36,25 @@ bool checkRotation(char st1[], char st2[], int lenght)
 {
   int indexFound = 0;
   char stConcate[500];
-  int i, j = 0;
+  // int i, j = 0;
   // stringConcatination(string1, string2, lenght);
-  for (i = 0; i < lenght; i++)
+  for (int i = 0; i < lenght; i++)
   {
-    if (st1[i] == st2[j])
+    int index = 0;
+    if (st1[lenght] == st2[lenght])
     {
-      return false;
+      if (stConcate[index] == st2[index])
+      {
+        cout << "string2 is the rotation of st1 _" << endl;
+        return true;
+      }
+    }
+    else
+    {
+      cout << "string 2 is not a rotation of st1 'cz its not in equal lenght __" << endl;
     }
   }
-  return true;
+  return false;
 }
 
 int main()
@@ -61,15 +70,6 @@ int main()
   int lenghtOfstr = getlenght(str1);
   cout << "lenght of string _" << lenghtOfstr << endl;
   stringConcatination(str1, lenghtOfstr);
-  bool isRotation = checkRotation(str1, str2, lenghtOfstr);
-  if (isRotation)
-  {
-    cout << "string1 is the rotation of string2 _" << endl;
-  }
-  else
-  {
-    cout << "string1 is not rotation of string2 _" << endl;
-  }
-
+  checkRotation(str1, str2, lenghtOfstr);
   return 0;
 }
