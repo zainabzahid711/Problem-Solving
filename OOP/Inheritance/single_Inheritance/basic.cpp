@@ -4,10 +4,19 @@ using namespace std;
 // single Inheritance
 class Vehical
 {
+protected:
+  string carName;
+  string carModel;
+
 public:
-  Vehical()
+  // default constructor
+  Vehical() {}
+  void callfromParent(string carName)
   {
-    cout << "this is vehical _" << endl;
+    cout << "-------___ parent class ___-------" << endl;
+    cout << "enter your car Name _" << endl;
+    cin >> carName;
+    cout << "YOUR CAR NAME IS _ " << carName << "\n";
   }
 };
 
@@ -15,14 +24,18 @@ public:
 
 class Car : public Vehical
 {
-private:
-  string model;
-
+  // carModel is protected data member its not access outside the class but
+  // can be accssed in derived class
 public:
-  Car(const string &carModel)
+  // default constructor
+  Car() {}
+  // parameterized constructor
+  Car(string carModel)
   {
-    model = carModel;
-    cout << "This is class for cars _" << model << endl;
+    cout << "-------____ Derived Class ____------" << endl;
+    cout << "enter your car Model _" << endl;
+    cin >> carModel;
+    cout << "YOUR CAR MODEL IS _ " << carModel << "\n";
   }
   void drive()
   {
@@ -32,6 +45,11 @@ public:
 
 int main()
 {
-  Car obj("proton");
+  // P_obj is parent class object and D_obj for derived class obj
+  string Name, model;
+  Vehical P_obj;
+  P_obj.callfromParent(Name);
+  Car D_obj(model);
+
   return 0;
 }

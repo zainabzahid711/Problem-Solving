@@ -1,59 +1,67 @@
-// Example:
-
 #include <iostream>
 using namespace std;
 
-class A
+// single inheritance implementation with an example
+
+class Base
 {
-protected:
-  int a;
+  string name;
 
 public:
-  void set_A()
-  {
-    cout << "Enter the Value of A=";
-    cin >> a;
-  }
-  void disp_A()
-  {
-    cout << endl
-         << "Value of A=" << a;
-  }
+  int age;
+  // default constructor
+  Base() {}
+  string getName();
+  void setName();
+  int getage();
+  void setage();
 };
-
-class B : public A
+void Base ::setName()
 {
-  int b, p;
+  name = "zainab zahid";
+}
+string Base ::getName()
+{
+  return name;
+}
+void Base ::setage(void)
+{
+  age = 22;
+}
+int Base ::getage()
+{
+  return age;
+}
+class Derived : public Base
+{
+  int data2;
 
 public:
-  void set_B()
+  Derived() : Base()
   {
-    set_A();
-    cout << "Enter the Value of B=";
-    cin >> b;
+    cout << "----___derived class____----"
+         << "\n";
   }
-
-  void disp_B()
-  {
-    disp_A();
-    cout << endl
-         << "Value of B=" << b;
-  }
-
-  void cal_product()
-  {
-    p = a * b;
-    cout << endl
-         << "Product of " << a << " * " << b << " = " << p;
-  }
+  void process();
+  void display();
 };
 
-main()
+void Derived ::process()
 {
+  data2 = 10 * getage();
+}
 
-  B _b;
-  _b.set_B();
-  _b.cal_product();
+void Derived ::display()
+{
+  cout << "name _" << getName();
+  cout << "age _" << getage();
+  cout << "process _" << data2;
+}
 
-  return 0;
+int main()
+{
+  string s;
+  int d;
+  Derived obj;
+  obj.display();
 }
