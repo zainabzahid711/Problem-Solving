@@ -1,8 +1,9 @@
 #include <iostream>
 using namespace std;
 
-//  an example of resolving the issue with same name functions in both classes
-//  ambiguity resolve using the scope resolution operator in single inheritance.
+//  in single inheritance ambiguity is resolved by itself
+//  we don't need a scope resolution operaotr to resolve ambiguity
+
 class Base
 {
 public:
@@ -17,19 +18,16 @@ class Derived : public Base
 {
 public:
   Derived() : Base() {}
-  void display()
-  {
-    cout << "call from derived class _" << endl;
-  }
-  void baseDisplay()
-  {
-    Base::display();
-  }
+  // void display()
+  // {
+  //   cout << "call from derived class _" << endl;
+  // }
 };
 
 int main()
 {
-  Derived obj;
-  obj.baseDisplay();
-  obj.display();
+  Derived dObj;
+  Base bObj;
+  bObj.display();
+  dObj.display();
 }
